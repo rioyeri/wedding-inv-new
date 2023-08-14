@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2022 at 07:51 PM
+-- Generation Time: Aug 14, 2023 at 09:05 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wedding-inv`
+-- Database: `wedding-inv-new`
 --
 
 -- --------------------------------------------------------
@@ -119,6 +119,8 @@ CREATE TABLE `complement` (
   `invitation_id` varchar(255) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
   `song` varchar(255) DEFAULT NULL,
+  `banner` varchar(255) DEFAULT NULL,
+  `song2` varchar(255) DEFAULT NULL,
   `creator` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -128,9 +130,23 @@ CREATE TABLE `complement` (
 -- Dumping data for table `complement`
 --
 
-INSERT INTO `complement` (`id`, `invitation_id`, `icon`, `song`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 'yizharlois', 'icon.ico', 'Willy Soemantri - Semua Baik (Instrumentall).mp3', 1, NULL, NULL),
-(2, 'shanialan', 'icon.ico', 'I Love You 3000.mp3', 1, '2022-08-03 17:14:58', '2022-08-03 17:14:58');
+INSERT INTO `complement` (`id`, `invitation_id`, `icon`, `song`, `banner`, `song2`, `creator`, `created_at`, `updated_at`) VALUES
+(3, 'syifAlvin', 'icon.ico', 'one-piece_opening-1-we-are.mp3', 'DSC03232.jpg', NULL, 1, '2023-07-10 10:13:03', '2023-08-13 10:33:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complement_specialname`
+--
+
+CREATE TABLE `complement_specialname` (
+  `id` int(11) NOT NULL,
+  `invitation_id` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `creator` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -688,8 +704,7 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id`, `invitation_id`, `title`, `description`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 'yizharlois', 'Acara', 'Kami Menyampaikan Kabar Bahagia Ini Dan Akan Lengkap Apabila Anda Berkenan Memberikan Doa Restu Kepada Kami Dalam Acara Pernikahan Kami Berikut Ini :', 1, '2022-01-14 14:11:46', '2022-01-14 14:11:46'),
-(2, 'shanialan', 'Acara', 'Kami Menyampaikan Kabar Bahagia Ini Dan Akan Lengkap Apabila Anda Berkenan Memberikan Doa Restu Kepada Kami Dalam Acara Pernikahan Kami Berikut Ini :', 1, '2022-08-02 08:38:41', '2022-08-03 08:15:55');
+(3, 'syifAlvin', 'Nikahan Syifa Apin', 'Kami Menyampaikan Kabar Bahagia Ini Dan Akan Lengkap Apabila Anda Berkenan Memberikan Doa Restu Kepada Kami Dalam Acara Pernikahan Kami Berikut Ini :', 49, '2023-07-10 09:56:55', '2023-08-12 16:04:44');
 
 -- --------------------------------------------------------
 
@@ -720,9 +735,8 @@ CREATE TABLE `event_detail` (
 --
 
 INSERT INTO `event_detail` (`id`, `event_id`, `event_name`, `event_date`, `event_time_start`, `event_time_end`, `event_time_zone`, `event_location`, `event_location_address`, `event_location_url`, `event_streaming_channel`, `event_streaming_link`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Pemberkatan', '2023-02-12', '08:30', NULL, 'WIB', 'GPT \"Kristus Bintang Fajar\"', 'Tamanan-Tulungagung', NULL, 'PELITA GPT TULUNGAGUNG', 'https://www.youtube.com/channel/UC2r5YM1FQL0etz0mvb1vXRQ', 1, '2022-01-14 14:11:46', '2022-01-14 14:11:46'),
-(2, 1, 'Acara', '2023-02-12', '18:00', '21:00', 'WIB', 'Jepun View Resto', 'Jl. Mayor Sujadi, Jepun, Tulungagung', 'https://maps.app.goo.gl/YBRsesxrGXouM9u67', NULL, NULL, 1, NULL, NULL),
-(7, 2, 'Resepsi', '2022-09-03', '13:30', '14:45', 'WIB', 'Capital O 1044 Diemdi Hotel', 'Babakan Sari, Kec. Kiaracondong, Kota Bandung, Jawa Barat 40218', 'https://maps.app.goo.gl/g6aHut4hSgALSkUW6', NULL, NULL, NULL, '2022-08-03 08:15:56', '2022-08-03 08:15:56');
+(14, 3, 'Akad Nikah', '2023-09-23', '08:00', '10:00', 'WIB', 'Kediaman Mempelai Wanita', 'Jl. Pangeran Senopati Masjid At-Taubah, Gg Alam Baru 6, No. 108, Karang Sari, Jatimulyo, Lampung Selatan', NULL, NULL, NULL, NULL, '2023-08-12 16:04:44', '2023-08-12 16:04:44'),
+(15, 3, 'Resepsi', '2023-09-23', '11:00', '14:00', 'WIB', 'Kediaman Mempelai Wanita', 'Jl. Pangeran Senopati Masjid At-Taubah, Gg Alam Baru 6, No. 108, Karang Sari, Jatimulyo, Lampung Selatan', NULL, NULL, NULL, NULL, '2023-08-12 16:04:44', '2023-08-12 16:04:44');
 
 -- --------------------------------------------------------
 
@@ -746,14 +760,8 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `invitation_id`, `title`, `description`, `image`, `creator`, `created_at`, `updated_at`) VALUES
-(3, 'yizharlois', NULL, NULL, '1.jpg', 1, NULL, NULL),
-(4, 'yizharlois', NULL, NULL, '2.jpg', 1, NULL, NULL),
-(5, 'yizharlois', NULL, NULL, '3.jpg', 1, NULL, NULL),
-(6, 'yizharlois', NULL, NULL, '4.jpg', 1, NULL, NULL),
-(7, 'yizharlois', NULL, NULL, '5.jpg', 1, NULL, NULL),
-(8, 'yizharlois', NULL, NULL, '6.jpg', 1, NULL, NULL),
-(9, 'yizharlois', NULL, NULL, '7.jpg', 1, NULL, NULL),
-(10, 'yizharlois', NULL, NULL, '8.jpg', 1, NULL, NULL);
+(11, 'syifAlvin', 'Prewed 1', NULL, 'DSC03162-2.jpg', 49, '2023-08-12 16:11:30', '2023-08-12 16:11:30'),
+(12, 'syifAlvin', 'test', NULL, 'DSC03162-2.jpg', 49, '2023-08-12 16:12:14', '2023-08-12 16:12:14');
 
 -- --------------------------------------------------------
 
@@ -769,15 +777,6 @@ CREATE TABLE `gallery_tags` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `gallery_tags`
---
-
-INSERT INTO `gallery_tags` (`id`, `tag_name`, `gallery_id`, `creator`, `created_at`, `updated_at`) VALUES
-(9, 'pemuda', 1, 1, '2021-07-07 06:00:44', '2021-07-07 06:00:44'),
-(10, 'foto-kegiatan', 2, 1, '2021-07-07 06:24:01', '2021-07-07 06:24:01'),
-(11, 'pemuda', 2, 1, '2021-07-07 06:24:01', '2021-07-07 06:24:01');
 
 -- --------------------------------------------------------
 
@@ -795,17 +794,6 @@ CREATE TABLE `giftbox` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `giftbox`
---
-
-INSERT INTO `giftbox` (`id`, `invitation_id`, `account_type`, `account_name`, `account_number`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 'yizharlois', 'BRI', 'Putra Wahyu Pamekas', '658301023016539', 1, NULL, NULL),
-(2, 'yizharlois', 'BTPN', 'Lois Aprilia Irianti', '90270167617', 1, NULL, NULL),
-(7, 'shanialan', 'Mandiri', 'Idzar Andalan', '1660000910422', NULL, '2022-08-03 06:06:06', '2022-08-03 06:06:06'),
-(8, 'shanialan', 'BCA', 'Idzar Andalan', '2302465712', NULL, '2022-08-03 06:06:06', '2022-08-03 06:06:06'),
-(9, 'shanialan', 'BSI', 'Idzar Andalan', '7153310437', NULL, '2022-08-03 06:06:06', '2022-08-03 06:06:06');
 
 -- --------------------------------------------------------
 
@@ -854,6 +842,7 @@ CREATE TABLE `invitation` (
   `bride_mother` varchar(255) DEFAULT NULL,
   `bride_photo` varchar(255) DEFAULT NULL,
   `tagline` text DEFAULT NULL,
+  `format` int(11) DEFAULT NULL,
   `creator` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -863,9 +852,8 @@ CREATE TABLE `invitation` (
 -- Dumping data for table `invitation`
 --
 
-INSERT INTO `invitation` (`id`, `invitation_id`, `groom_name`, `groom_nickname`, `groom_father`, `groom_mother`, `groom_photo`, `bride_name`, `bride_nickname`, `bride_father`, `bride_mother`, `bride_photo`, `tagline`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 'yizharlois', 'Yizhar Putra Wahyu Pamekas', 'Yizhar', 'Bpk. I. Suwito', 'Ibu Mukti Wahyu N.', 'yizhar.jpg', 'Lois Aprilia Irianti', 'Lois', 'Bpk. Agus Legowo S., A.Md.Kep', 'Ibu W. Astuti, A.Md.Kep', 'lois.jpg', '\"TUHAN MEMBUAT SEGALA SESUATU INDAH PADA WAKTUNYA,\r\nINDAH SAAT DIA MEMPERTEMUKAN, INDAH SAAT DIA MENUMBUHKAN KASIH,\r\nDAN INDAH SAAT DIA MEMPERSATUKAN KAMI DALAM SUATU PERNIKAHAN KUDUS\"', 1, '2022-01-13 15:34:03', '2022-01-13 15:34:03'),
-(2, 'shanialan', 'Idzar Andalan Tunjang Serawai', 'Alan', 'Alm. Ir. Nazaruddin Nizami Arifin', 'Ida Ermawati', 'peter-griffin.png', 'Shani Yunia Sari', 'Shani', 'Nandang Sumirat', 'Ade Aay Hayati', 'Lois_Griffin.webp', 'Maha suci Allah SWT yang menciptakan makhluk-Nya berpasang - pasangan', 1, '2022-07-29 11:15:57', '2022-08-03 17:16:21');
+INSERT INTO `invitation` (`id`, `invitation_id`, `groom_name`, `groom_nickname`, `groom_father`, `groom_mother`, `groom_photo`, `bride_name`, `bride_nickname`, `bride_father`, `bride_mother`, `bride_photo`, `tagline`, `format`, `creator`, `created_at`, `updated_at`) VALUES
+(4, 'syifAlvin', 'Alvin Khair', 'Apin', 'Indra Nura', 'Dina Lusia Syam', 'hit.jpg', 'Syifa Chusnul Khotimah', 'Syifa', 'Maarifudin MZ', 'Satiana', 'DSC03286.jpg', NULL, NULL, 49, '2023-07-10 09:47:55', '2023-08-12 15:52:17');
 
 -- --------------------------------------------------------
 
@@ -883,16 +871,6 @@ CREATE TABLE `link` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `link`
---
-
-INSERT INTO `link` (`id`, `title`, `category`, `description`, `link`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 'Shulamite Radio', 'radio', 'Radio Lagu Rohani yang On-Air setiap malam jam 21.00-24.00 WIB', 'http://shulamite.radio12345.com', 1, '2021-06-27 15:28:39', '2021-07-06 06:42:08'),
-(2, 'Youtube PELITA GPT Tulungagung', 'youtube', 'Channel Youtube yang dikelola oleh Pemuda GPT Tulungagung', 'https://www.youtube.com/channel/UC2r5YM1FQL0etz0mvb1vXRQ/featured', 1, '2021-06-27 15:32:15', '2021-07-06 06:42:20'),
-(3, 'Instagram PELITA GPT Tulungagung', 'instagram', NULL, 'https://www.instagram.com/pelita_gpt_tulungagung/', 1, '2021-06-27 15:35:17', '2021-07-06 06:42:29'),
-(4, 'Facebook GPT Tulungagung', 'facebook', 'public facebook', 'https://www.facebook.com/gpt.tulungagung.1', 1, '2021-07-06 06:40:39', '2021-07-06 06:40:39');
 
 -- --------------------------------------------------------
 
@@ -914,104 +892,8 @@ CREATE TABLE `log` (
 --
 
 INSERT INTO `log` (`id`, `sub_id`, `keterangan`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 'USROD', 'Delete Role:51', '1', '2021-06-26 19:17:57', '2021-06-26 19:17:57'),
-(2, 'USROD', 'Delete Role:52', '1', '2021-06-26 19:18:18', '2021-06-26 19:18:18'),
-(3, 'USROD', 'Delete Role:53', '1', '2021-06-26 19:18:26', '2021-06-26 19:18:26'),
-(4, 'USROD', 'Delete Role:54', '1', '2021-06-26 19:18:40', '2021-06-26 19:18:40'),
-(5, 'USROD', 'Delete Role:55', '1', '2021-06-26 19:18:48', '2021-06-26 19:18:48'),
-(6, 'USROD', 'Delete Role:50', '1', '2021-06-26 19:18:55', '2021-06-26 19:18:55'),
-(7, 'USROD', 'Delete Role:56', '1', '2021-06-26 19:19:01', '2021-06-26 19:19:01'),
-(8, 'USROU', 'Update Role:Owner', '1', '2021-06-26 19:19:48', '2021-06-26 19:19:48'),
-(9, 'USROU', 'Update Role:Admin', '1', '2021-06-26 19:20:37', '2021-06-26 19:20:37'),
-(10, 'USROU', 'Update Role:Active User', '1', '2021-06-26 19:21:02', '2021-06-26 19:21:02'),
-(11, 'USROC', 'Create Role:Nonactive User', '1', '2021-06-26 19:21:34', '2021-06-26 19:21:34'),
-(12, 'COJDC', 'Create Jadwal: Ibadah Penginjilan', '1', '2021-06-27 08:02:50', '2021-06-27 08:02:50'),
-(13, 'COJDC', 'Create Jadwal: Ibadah Pengajaran', '1', '2021-06-27 08:10:00', '2021-06-27 08:10:00'),
-(14, 'COJDC', 'Create Jadwal: Ibadah Penyembahan', '1', '2021-06-27 08:12:52', '2021-06-27 08:12:52'),
-(15, 'COJDC', 'Create Jadwal: Ibadah Kaum Muda', '1', '2021-06-27 08:13:35', '2021-06-27 08:13:35'),
-(16, 'COJDC', 'Create Jadwal: Ibadah Sekolah Minggu', '1', '2021-06-27 08:14:09', '2021-06-27 08:14:09'),
-(17, 'COJDU', 'Update Jadwal: Ibadah Kaum Muda', '1', '2021-06-27 08:14:29', '2021-06-27 08:14:29'),
-(18, 'COJDU', 'Update Jadwal: Ibadah Sekolah Minggu', '1', '2021-06-27 08:14:38', '2021-06-27 08:14:38'),
-(19, 'USUSC', 'Create User: Aditya Rio Fansdana', '1', '2021-06-27 08:35:46', '2021-06-27 08:35:46'),
-(20, 'COGLC', 'Create Image: Gambar 2', '1', '2021-06-27 14:37:50', '2021-06-27 14:37:50'),
-(21, 'COGLU', 'Update Image: Gambar 1', '1', '2021-06-27 14:45:38', '2021-06-27 14:45:38'),
-(22, 'COGLU', 'Update Image: Gambar 1', '1', '2021-06-27 14:46:20', '2021-06-27 14:46:20'),
-(23, 'COGLU', 'Update Image: Gambar 1', '1', '2021-06-27 14:47:15', '2021-06-27 14:47:15'),
-(24, 'COLNC', 'Create Link: Shulamite Radio', '1', '2021-06-27 15:28:39', '2021-06-27 15:28:39'),
-(25, 'COLNC', 'Create Link: Youtube PELITA GPT Tulungagung', '1', '2021-06-27 15:32:15', '2021-06-27 15:32:15'),
-(26, 'COLNC', 'Create Link: Instagram PELITA GPT Tulungagung', '1', '2021-06-27 15:35:17', '2021-06-27 15:35:17'),
-(27, 'COAUC', 'Create About Us: Gembala', '1', '2021-06-27 16:22:14', '2021-06-27 16:22:14'),
-(28, 'COAUC', 'Create About Us: Sejarah Gereja', '1', '2021-06-27 16:25:27', '2021-06-27 16:25:27'),
-(29, 'COAUC', 'Create About Us: About Us', '1', '2021-06-28 07:45:18', '2021-06-28 07:45:18'),
-(30, 'COLNC', 'Create Link: Facebook GPT Tulungagung', '1', '2021-07-06 06:40:39', '2021-07-06 06:40:39'),
-(31, 'COLNU', 'Update Link: Shulamite Radio', '1', '2021-07-06 06:42:08', '2021-07-06 06:42:08'),
-(32, 'COLNU', 'Update Link: Youtube PELITA GPT Tulungagung', '1', '2021-07-06 06:42:20', '2021-07-06 06:42:20'),
-(33, 'COLNU', 'Update Link: Instagram PELITA GPT Tulungagung', '1', '2021-07-06 06:42:29', '2021-07-06 06:42:29'),
-(34, 'COBNC', 'Create Banner: Dengarkan Streaming Kami !!', '1', '2021-07-06 11:04:58', '2021-07-06 11:04:58'),
-(35, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-07-06 11:13:50', '2021-07-06 11:13:50'),
-(36, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-07-06 11:15:18', '2021-07-06 11:15:18'),
-(37, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-07-06 11:32:02', '2021-07-06 11:32:02'),
-(38, 'COBNC', 'Create Banner: Youtube Channel Kami', '1', '2021-07-06 11:55:49', '2021-07-06 11:55:49'),
-(39, 'COBNU', 'Update Banner: Youtube Channel Kami', '1', '2021-07-06 12:10:23', '2021-07-06 12:10:23'),
-(40, 'COBNC', 'Create Banner: Test', '1', '2021-07-06 14:05:19', '2021-07-06 14:05:19'),
-(41, 'COBNU', 'Update Banner: Test', '1', '2021-07-06 14:36:26', '2021-07-06 14:36:26'),
-(42, 'COBNU', 'Update Banner: Test', '1', '2021-07-06 14:40:11', '2021-07-06 14:40:11'),
-(43, 'COGLC', 'Create Image: Test', '1', '2021-07-07 04:08:26', '2021-07-07 04:08:26'),
-(44, 'COGLU', 'Update Image: Test', '1', '2021-07-07 06:00:31', '2021-07-07 06:00:31'),
-(45, 'COGLU', 'Update Image: Gambar 1', '1', '2021-07-07 06:00:44', '2021-07-07 06:00:44'),
-(46, 'COGLU', 'Update Image: Test', '1', '2021-07-07 06:24:01', '2021-07-07 06:24:01'),
-(47, 'COPRU', 'Update Profile', '1', '2021-07-08 09:10:11', '2021-07-08 09:10:11'),
-(48, 'MDDYU', 'Update Day: Juma\'t', '1', '2021-07-08 10:09:23', '2021-07-08 10:09:23'),
-(49, 'MDSMC', 'Create Sosmed: facebook', '1', '2021-07-08 18:29:57', '2021-07-08 18:29:57'),
-(50, 'MDSMD', 'Delete Sosmed: facebook', '1', '2021-07-08 18:34:39', '2021-07-08 18:34:39'),
-(51, 'MDSMU', 'Update Sosmed: facebook', '1', '2021-07-08 18:34:54', '2021-07-08 18:34:54'),
-(52, 'COGLD', 'Delete Image: ', '1', '2021-09-04 13:06:50', '2021-09-04 13:06:50'),
-(53, 'COGLD', 'Delete Image: ', '1', '2021-09-04 13:06:56', '2021-09-04 13:06:56'),
-(54, 'COBNU', 'Update Banner: Youtube Channel Kami', '1', '2021-09-04 14:43:41', '2021-09-04 14:43:41'),
-(55, 'COBNU', 'Update Banner: Youtube Channel Kami', '1', '2021-09-04 14:50:32', '2021-09-04 14:50:32'),
-(56, 'COBNU', 'Update Banner: Youtube Channel Kami', '1', '2021-09-04 14:59:56', '2021-09-04 14:59:56'),
-(57, 'COBNC', 'Create Banner: Jadwal Ibadah', '1', '2021-09-04 15:25:32', '2021-09-04 15:25:32'),
-(58, 'COBND', 'Delete Banner: Test', '1', '2021-09-04 15:51:40', '2021-09-04 15:51:40'),
-(59, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-09-04 15:57:16', '2021-09-04 15:57:16'),
-(60, 'COBNU', 'Update Banner: Youtube Channel Kami', '1', '2021-09-04 15:57:30', '2021-09-04 15:57:30'),
-(61, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-09-04 15:57:42', '2021-09-04 15:57:42'),
-(62, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-09-04 15:58:10', '2021-09-04 15:58:10'),
-(63, 'COBNU', 'Update Banner: Jadwal Ibadah', '1', '2021-09-04 16:00:54', '2021-09-04 16:00:54'),
-(64, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-09-04 16:15:35', '2021-09-04 16:15:35'),
-(65, 'COBNU', 'Update Banner: Youtube Channel Kami', '1', '2021-09-04 16:16:33', '2021-09-04 16:16:33'),
-(66, 'COBNU', 'Update Banner: Dengarkan Streaming Kami !!', '1', '2021-09-04 16:16:59', '2021-09-04 16:16:59'),
-(67, 'COBNU', 'Update Banner: Jadwal Ibadah', '1', '2021-09-04 16:17:15', '2021-09-04 16:17:15'),
-(68, 'COBNU', 'Update Banner: Jadwal Ibadah', '1', '2021-09-04 16:20:11', '2021-09-04 16:20:11'),
-(69, 'COBNU', 'Update Banner: Youtube Channel Kami', '1', '2021-09-04 16:20:22', '2021-09-04 16:20:22'),
-(70, 'COBNU', 'Update Banner: Jadwal Ibadah', '1', '2021-09-04 16:21:19', '2021-09-04 16:21:19'),
-(71, 'COBNU', 'Update Banner: Jadwal Ibadah', '1', '2021-09-04 16:22:19', '2021-09-04 16:22:19'),
-(72, 'COWI', 'Create Invitation: shanialan', '1', '2022-07-29 11:15:57', '2022-07-29 11:15:57'),
-(73, 'COWI', 'Create Invitation: shanialana', '1', '2022-07-29 14:07:34', '2022-07-29 14:07:34'),
-(74, 'COWI', 'Update Invitation: shanialan', '1', '2022-07-29 14:09:59', '2022-07-29 14:09:59'),
-(75, 'COWI', 'Update Invitation: shanialan', '1', '2022-07-29 14:10:07', '2022-07-29 14:10:07'),
-(76, 'COWID', 'Delete Invitation : 3', '1', '2022-07-29 14:16:56', '2022-07-29 14:16:56'),
-(77, 'IVEV', 'Create Event: shanialan', '1', '2022-08-02 08:38:41', '2022-08-02 08:38:41'),
-(78, 'IVGBC', 'Create Gift Box: shanialan (1660000910422)', '1', '2022-08-03 05:25:06', '2022-08-03 05:25:06'),
-(79, 'IVGBC', 'Create Gift Box: shanialan (2302465712)', '1', '2022-08-03 05:25:06', '2022-08-03 05:25:06'),
-(80, 'IVGBC', 'Create Gift Box: shanialan (7153310437)', '1', '2022-08-03 05:25:06', '2022-08-03 05:25:06'),
-(81, 'IVPRD', 'Delete Invitation : shanialan', '1', '2022-08-03 05:33:28', '2022-08-03 05:33:28'),
-(82, 'IVPRD', 'Delete Invitation : shanialan', '1', '2022-08-03 05:34:56', '2022-08-03 05:34:56'),
-(83, 'IVPRD', 'Delete Invitation : shanialan', '1', '2022-08-03 05:36:06', '2022-08-03 05:36:06'),
-(84, 'IVPRD', 'Delete Invitation : shanialan', '1', '2022-08-03 05:36:29', '2022-08-03 05:36:29'),
-(85, 'IVGBD', 'Delete Gift Box: shanialan', '1', '2022-08-03 05:44:14', '2022-08-03 05:44:14'),
-(86, 'IVGBD', 'Delete Gift Box: shanialan', '1', '2022-08-03 05:45:52', '2022-08-03 05:45:52'),
-(87, 'IVGBC', 'Create Gift Box: shanialan (1660000910422)', '1', '2022-08-03 06:06:06', '2022-08-03 06:06:06'),
-(88, 'IVGBC', 'Create Gift Box: shanialan (2302465712)', '1', '2022-08-03 06:06:06', '2022-08-03 06:06:06'),
-(89, 'IVGBC', 'Create Gift Box: shanialan (7153310437)', '1', '2022-08-03 06:06:06', '2022-08-03 06:06:06'),
-(90, 'IVEV', 'Create Event: shanialan', '1', '2022-08-03 08:10:42', '2022-08-03 08:10:42'),
-(91, 'IVEV', 'Create Event: shanialan', '1', '2022-08-03 08:12:42', '2022-08-03 08:12:42'),
-(92, 'IVEV', 'Create Event: shanialan', '1', '2022-08-03 08:15:35', '2022-08-03 08:15:35'),
-(93, 'IVEV', 'Create Event: shanialan', '1', '2022-08-03 08:15:56', '2022-08-03 08:15:56'),
-(94, 'IVPR', 'Update Invitation: shanialan', '1', '2022-08-03 11:05:27', '2022-08-03 11:05:27'),
-(95, 'IVPR', 'Update Invitation: shanialan', '1', '2022-08-03 11:11:47', '2022-08-03 11:11:47'),
-(96, 'IVPR', 'Update Invitation: shanialan', '1', '2022-08-03 11:12:01', '2022-08-03 11:12:01'),
-(97, 'IVCMC', 'Create Complement: shanialan', '1', '2022-08-03 17:14:58', '2022-08-03 17:14:58'),
-(98, 'IVPR', 'Update Invitation: shanialan', '1', '2022-08-03 17:16:21', '2022-08-03 17:16:21');
+(1, 'IVCMU', 'Update Complement: syifAlvin', '1', '2023-08-13 10:33:36', '2023-08-13 10:33:36'),
+(2, 'IVCMU', 'Update Complement: syifAlvin', '1', '2023-08-13 10:58:43', '2023-08-13 10:58:43');
 
 -- --------------------------------------------------------
 
@@ -1027,14 +909,6 @@ CREATE TABLE `messages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`id`, `invitation_id`, `sender_name`, `sender_message`, `created_at`, `updated_at`) VALUES
-(11, 'yizharlois', 'Aditya Rio Fansdana', 'asdfasdf', '2022-01-14 17:09:34', '2022-01-14 17:09:34'),
-(12, 'yizharlois', 'Iwan Cinta Gunawan', 'Xixixixixixixi', '2022-08-01 18:04:53', '2022-08-01 18:04:53');
 
 -- --------------------------------------------------------
 
@@ -1110,6 +984,10 @@ INSERT INTO `modul_submapping` (`id`, `submodul_id`, `jenis_id`) VALUES
 ('IVPRD', 'IVPR', 'Delete'),
 ('IVPRU', 'IVPR', 'Update'),
 ('IVPRV', 'IVPR', 'View'),
+('IVQTC', 'IVQT', 'Create'),
+('IVQTD', 'IVQT', 'Delete'),
+('IVQTU', 'IVQT', 'Update'),
+('IVQTV', 'IVQT', 'View'),
 ('MDDYC', 'MDDY', 'Create'),
 ('MDDYD', 'MDDY', 'Delete'),
 ('MDDYU', 'MDDY', 'Update'),
@@ -1154,11 +1032,12 @@ CREATE TABLE `modul_submodul` (
 --
 
 INSERT INTO `modul_submodul` (`submodul_id`, `submodul_desc`, `modul_id`, `submodul_page`, `urutan`) VALUES
-('IVCM', 'Invitation Complement', 'IV', 'complement.index', 5),
+('IVCM', 'Invitation Complement', 'IV', 'complement.index', 6),
 ('IVEV', 'Invitation Events', 'IV', 'event.index', 2),
-('IVGB', 'Invitation Gift Box', 'IV', 'giftbox.index', 4),
+('IVGB', 'Invitation Gift Box', 'IV', 'giftbox.index', 5),
 ('IVGL', 'Invitation Gallery', 'IV', 'gallery.index', 3),
 ('IVPR', 'Invitation Profile', 'IV', 'invitation.index', 1),
+('IVQT', 'Invitation Quote', 'IV', 'quote.index', 4),
 ('MDDY', 'Hari', 'MD', 'days.index', 1),
 ('MDSM', 'Social Media', 'MD', 'sosmed.index', 2),
 ('MRMM', 'Menu Mapping', 'MR', 'getMapping', 1),
@@ -1190,7 +1069,31 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`id`, `first_name`, `mid_name`, `last_name`, `address`, `phone`, `email`, `creator`, `created_at`, `updated_at`) VALUES
-(1, 'Nada', '', 'Sederhana', 'Jl. Ki Mangun Sarkoro no.7, Kab. Tulungagung', NULL, 'pelitabifacsta@gmail.com', 1, NULL, '2021-07-08 09:10:11');
+(1, 'Studio', '', 'Si Apin', 'Jl. Sadang Saip no.27, Kota Bandung', NULL, 'studiosiapin@gmail.com', 1, NULL, '2021-07-08 09:10:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quote`
+--
+
+CREATE TABLE `quote` (
+  `id` int(11) NOT NULL,
+  `invitation_id` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `text` varchar(500) DEFAULT NULL,
+  `bg_image` varchar(255) DEFAULT NULL,
+  `creator` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quote`
+--
+
+INSERT INTO `quote` (`id`, `invitation_id`, `title`, `text`, `bg_image`, `creator`, `created_at`, `updated_at`) VALUES
+(2, 'syifAlvin', 'Sebuah Quote', 'One Piece is Real!', 'IMG_2238.jpeg', 49, '2023-08-12 16:06:09', '2023-08-12 16:06:09');
 
 -- --------------------------------------------------------
 
@@ -1275,9 +1178,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `bck_pass`, `password`, `last_login`, `login_status`, `name`, `address`, `phone`, `ktp`, `email`, `tmpt_lhr`, `tgl_lhr`, `foto_profil`, `created_at`, `updated_at`) VALUES
-(1, 'superadmin', 'menujukayaraya', '$2y$10$jypTcvr8kbC1vSn2zsqJnukunXtXbRta89IJ9aTDMH5vmrjxyGrTK', '2015-09-07 00:00:00', 1, 'Superadmin', 'SUPERADMIN', 'SUPERADMIN', 'SA', 'superadmin@royalcontrolling.com', 'SUPERADMIN', '2020-01-02', 'ROYALSUPERADMIN.jpg', '2021-06-27 09:00:55', '2021-06-27 15:22:10'),
+(1, 'superadmin', 'studiosederhana', '$2y$10$/CCnUIj.CFrNr/i0ROqepO6I1/.NuWsrHWoozdCf.wZm1NCIk0WJq', '2015-09-07 00:00:00', 1, 'Superadmin', 'SUPERADMIN', 'SUPERADMIN', 'SA', 'superadmin@royalcontrolling.com', 'SUPERADMIN', '2020-01-02', 'ROYALSUPERADMIN.jpg', '2022-08-19 02:57:10', '2022-08-19 02:57:10'),
 (41, 'rioyeri', '11223344', '$2y$10$txb/47TSywXTLTH.iaS4m.VFHsdjAZFJ.Wqb8eCUTdcFEjxwgeI4u', NULL, 1, 'Aditya Rio Fansdana', 'Perum. Tulungagung Permai blok G-3, Belakang RSUD DR. Iskak Tulungagung', '081221881737', '3504021810940001', 'rioyeri@gmail.com', 'Kab. Tulungagung', '1994-10-18', 'rioyeri.png', '2021-06-27 08:35:46', '2021-06-27 08:35:46'),
-(48, 'eli', 'elipinter', '$2y$10$9rTSG5ixwpnWGXAF6WXcnez14GXxlRFfDK6Y2dQuFUka.FEaUTU/G', NULL, NULL, 'Eliezer', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-05 11:10:33', '2021-09-05 11:10:33');
+(49, 'alvinarthas', 'alvinarthas', '$2y$10$mhhb4K0yrt8InrhWJ0aGzO3i92bfadpgUUmw7wQkDrU63.7OGiAHy', NULL, NULL, 'alvinarthas', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-07-11 03:31:04', '2023-07-11 03:31:04');
 
 -- --------------------------------------------------------
 
@@ -1298,20 +1201,26 @@ CREATE TABLE `users_mapping` (
 --
 
 INSERT INTO `users_mapping` (`id`, `user_id`, `submapping_id`, `created_at`, `updated_at`) VALUES
-(1024, 48, 'USUSV', '2021-09-05 11:10:33', '2021-09-05 11:10:33'),
-(1025, 48, 'USUSU', '2021-09-05 11:10:33', '2021-09-05 11:10:33'),
-(1082, 48, 'MDDYC', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1083, 48, 'MDDYD', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1084, 48, 'MDDYU', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1085, 48, 'MDDYV', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1086, 48, 'MDPRC', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1087, 48, 'MDPRD', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1088, 48, 'MDPRU', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1089, 48, 'MDPRV', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1090, 48, 'MDSMC', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1091, 48, 'MDSMD', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1092, 48, 'MDSMU', '2021-09-05 11:23:04', '2021-09-05 11:23:04'),
-(1093, 48, 'MDSMV', '2021-09-05 11:23:04', '2021-09-05 11:23:04');
+(1094, 49, 'USUSV', '2023-07-11 03:31:04', '2023-07-11 03:31:04'),
+(1095, 49, 'USUSU', '2023-07-11 03:31:04', '2023-07-11 03:31:04'),
+(1096, 49, 'IVCMC', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1097, 49, 'IVCMU', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1098, 49, 'IVCMV', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1099, 49, 'IVEVC', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1100, 49, 'IVEVU', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1101, 49, 'IVEVV', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1102, 49, 'IVGBC', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1103, 49, 'IVGBU', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1104, 49, 'IVGBV', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1105, 49, 'IVGLC', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1106, 49, 'IVGLU', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1107, 49, 'IVGLV', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1108, 49, 'IVPRC', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1109, 49, 'IVPRU', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1110, 49, 'IVPRV', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1111, 49, 'IVQTC', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1112, 49, 'IVQTU', '2023-07-11 03:34:00', '2023-07-11 03:34:00'),
+(1113, 49, 'IVQTV', '2023-07-11 03:34:00', '2023-07-11 03:34:00');
 
 -- --------------------------------------------------------
 
@@ -1334,7 +1243,7 @@ CREATE TABLE `users_role` (
 INSERT INTO `users_role` (`id`, `username`, `role_id`, `created_at`, `updated_at`) VALUES
 (1, 'superadmin', 1, '2019-05-06 17:41:24', '2019-05-06 10:41:24'),
 (28, 'rioyeri', 43, '2021-06-27 08:52:37', '2021-06-27 08:52:37'),
-(31, 'eli', 43, '2021-09-05 11:15:21', '2021-09-05 11:15:21');
+(32, 'alvinarthas', 47, '2023-07-11 03:32:53', '2023-07-11 03:32:53');
 
 --
 -- Indexes for dumped tables
@@ -1356,7 +1265,15 @@ ALTER TABLE `boxicons`
 -- Indexes for table `complement`
 --
 ALTER TABLE `complement`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `complement_invitation_id` (`invitation_id`);
+
+--
+-- Indexes for table `complement_specialname`
+--
+ALTER TABLE `complement_specialname`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `compspecial_invitationi_d` (`invitation_id`);
 
 --
 -- Indexes for table `datakota`
@@ -1462,6 +1379,13 @@ ALTER TABLE `profile`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `quote`
+--
+ALTER TABLE `quote`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `invitation_id_quote` (`invitation_id`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
@@ -1516,7 +1440,13 @@ ALTER TABLE `boxicons`
 -- AUTO_INCREMENT for table `complement`
 --
 ALTER TABLE `complement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `complement_specialname`
+--
+ALTER TABLE `complement_specialname`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `datakota`
@@ -1528,25 +1458,25 @@ ALTER TABLE `datakota`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `event_detail`
 --
 ALTER TABLE `event_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `gallery_tags`
 --
 ALTER TABLE `gallery_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `giftbox`
@@ -1564,25 +1494,25 @@ ALTER TABLE `hari`
 -- AUTO_INCREMENT for table `invitation`
 --
 ALTER TABLE `invitation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `link`
 --
 ALTER TABLE `link`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1595,6 +1525,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `quote`
+--
+ALTER TABLE `quote`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -1612,23 +1548,35 @@ ALTER TABLE `sosmed`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `users_mapping`
 --
 ALTER TABLE `users_mapping`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1094;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1114;
 
 --
 -- AUTO_INCREMENT for table `users_role`
 --
 ALTER TABLE `users_role`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `complement`
+--
+ALTER TABLE `complement`
+  ADD CONSTRAINT `complement_invitation_id` FOREIGN KEY (`invitation_id`) REFERENCES `invitation` (`invitation_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `complement_specialname`
+--
+ALTER TABLE `complement_specialname`
+  ADD CONSTRAINT `compspecial_invitationi_d` FOREIGN KEY (`invitation_id`) REFERENCES `invitation` (`invitation_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `event_detail`
@@ -1665,6 +1613,12 @@ ALTER TABLE `modul_submapping`
 --
 ALTER TABLE `modul_submodul`
   ADD CONSTRAINT `fk_modul` FOREIGN KEY (`modul_id`) REFERENCES `modul` (`modul_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `quote`
+--
+ALTER TABLE `quote`
+  ADD CONSTRAINT `invitation_id_quote` FOREIGN KEY (`invitation_id`) REFERENCES `invitation` (`invitation_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users_mapping`
