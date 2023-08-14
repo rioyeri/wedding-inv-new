@@ -18,7 +18,9 @@
       @include('wedding-inv.gallery')      
     @endif
 
-    @include('wedding-inv.features')
+    @if(count($giftbox) != 0)
+        @include('wedding-inv.features')
+    @endif
     @include('wedding-inv.wishes')
 
     <div class="mute shadow px-3 py-2" style="border-radius: 20px; color: black; background-color: white; display:none;" id="mute" onClick="mute();"><i class="fa fa-volume-up"></i></div>

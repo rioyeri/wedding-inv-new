@@ -82,7 +82,7 @@ Route::middleware(['checkUser'])->group(function () {
         // Event
         'event' => 'EventController',
         // Gift
-        'giftbox' => 'GiftboxController',
+        'giftbox' => 'GiftBoxController',
         // Complement
         'complement' => 'ComplementController',
         // Quote

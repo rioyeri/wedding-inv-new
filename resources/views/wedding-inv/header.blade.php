@@ -20,7 +20,9 @@
         @if (count($galleries) != 0)
             <li><a class="nav-link scrollto" href="#screenshots">Galeri</a></li>
         @endif
-        <li><a class="nav-link scrollto" href="#features">Hadiah Pernikahan</a></li>
+        @if(count($giftbox) != 0)
+            <li><a class="nav-link scrollto" href="#features">Hadiah Pernikahan</a></li>
+        @endif
         <li><a class="nav-link scrollto" href="#contact">Ucapan</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
