@@ -11,6 +11,7 @@ use App\Event;
 use App\Gallery;
 use App\GiftBox;
 use App\Complement;
+use App\ComplementSpecial;
 use App\Quote;
 use App\MenuMapping;
 use App\Log;
@@ -234,11 +235,16 @@ class InvitationController extends Controller
 
             // Complement
             $complement = Complement::where('invitation_id', $invitation_id)->first();
+            if(ComplementSpecial::where('invitation_id', $invitation_id)->where('name', $nama)->count() != 0){
+                $complement_song = $complement->song2;
+            }else{
+                $complement_song = $complement->song;
+            }
 
             // Quote
             $quote = Quote::where('invitation_id', $invitation_id)->first();
     
-            return view('wedding-inv.main', compact('nama', 'posisi', 'invitation','events','messages','giftbox','galleries','complement','quote'));
+            return view('wedding-inv.main', compact('nama', 'posisi', 'invitation','events','messages','giftbox','galleries','complement','quote','complement_song'));
         }else{
             return view('welcome.maintenance');
         }

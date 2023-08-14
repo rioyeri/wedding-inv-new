@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Complement;
+use App\ComplementSpecial;
 use App\MenuMapping;
 use App\Invitation;
 use App\Log;
@@ -107,7 +108,8 @@ class ComplementController extends Controller
     {
         $invitation = Invitation::all();
         $complement = Complement::where('id', $id)->first();
-        return view('complement.form', compact('invitation','complement'));
+        $specialname = ComplementSpecial::where('invitation_id', $complement->invitation_id)->get();
+        return view('complement.form', compact('invitation','complement','specialname'));
     }
 
     /**
@@ -146,6 +148,19 @@ class ComplementController extends Controller
                 $song = $complement->song;
             }
 
+            $song2 = null;
+            // Upload Foto
+            if($request->song2 <> NULL || $request->song2 <> ''){
+                if (file_exists(public_path('multimedia/'.$complement->invitation_id.'/').$complement->song2) && $complement->song2 != null) {
+                    unlink(public_path('multimedia/'.$complement->invitation_id.'/').$complement->song2);
+                }
+
+                $song2 = $request->song2->getClientOriginalName();
+                $request->song2->move(public_path('multimedia/'.$request->inv_id.'/'),$song2);
+            }else{
+                $song2 = $complement->song2;
+            }
+
             $banner = null;
             // Upload Foto
             if($request->banner <> null || $request->banner <> ''){
@@ -161,9 +176,23 @@ class ComplementController extends Controller
 
             $complement->icon = $icon;
             $complement->song = $song;
+            $complement->song2 = $song2;
             $complement->banner = $banner;
             $complement->creator = session('user_id');
             $complement->save();
+
+            if(count($request->list_names) != 0 AND ComplementSpecial::where('invitation_id', $complement->invitation_id)->count() != 0){
+                ComplementSpecial::where('invitation_id', $complement->invitation_id)->delete();
+            }
+        
+            foreach($request->list_names as $name){
+                $list_names = new ComplementSpecial(array(
+                    "invitation_id" => $complement->invitation_id,
+                    "name" => $name,
+                    "creator" => session('user_id'),
+                ));
+                $list_names->save();
+            }
 
             Log::setLog('IVCMU','Update Complement: '.$complement->invitation_id);
 

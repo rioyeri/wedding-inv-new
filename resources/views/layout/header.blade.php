@@ -20,7 +20,7 @@
     <!-- LOGO -->
     <div class="topbar-left">
         {{-- <a href="{{ route('getHome') }}" class="logo"><span><span>GPT </span>Tulungagung</span><i class="mdi mdi-layers"></i></a> --}}
-        <a href="{{ route('getHome') }}" class="logo logo-style"><span>nada<span>Sederhana</span></span></a>
+        <a href="{{ route('getHome') }}" class="logo logo-style"><span>Studio<span>Si Apin</span></span></a>
     </div>
 
     <!-- Button mobile view to collapse sidebar menu -->

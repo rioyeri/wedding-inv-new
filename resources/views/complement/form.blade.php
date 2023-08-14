@@ -81,6 +81,43 @@ Form Complement Things
         </div>
     </div>
 
+    @if($complement->invitation_id == "syifAlvin")
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
+                    <h4 class="m-t-0 header-title" style="color: red">* Special Case</h4>
+                    <p class="text-muted m-b-30 font-14">
+                    </p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="p-20">
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label">Upload Background Song</label>
+                                    <div class="col-10">
+                                        <input type="file" class="dropify" data-height="100" name="song2" id="song2" data-default-file="@isset($complement->song2){{ asset('multimedia/'.$complement->invitation_id.'/'.$complement->song2) }}@endisset" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label">List Name</label>
+                                    <div class="col-10">
+                                        <select multiple data-role="tagsinput" placeholder="drop any names" name="list_names[]">
+                                            @if(count($specialname) != 0)
+                                                @foreach ($specialname as $name)
+                                                    <option value="{{ $name->name }}"></option>
+                                                @endforeach
+                                            @endisset
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="form-group text-right m-b-0">
         <a href="{{ route("complement.index") }}" class="btn btn-warning waves-effect waves-light">Kembali</a>
         <button class="btn btn-success waves-effect waves-light" type="submit">

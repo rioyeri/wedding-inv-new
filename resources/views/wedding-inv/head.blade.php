@@ -29,7 +29,7 @@
   
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets_eStartup/css/style.css') }}" rel="stylesheet">
-    <audio id="audio" style="width:0px; height:0px;"><source src="{{ asset('multimedia/'.$invitation->invitation_id.'/'.$complement->song) }}" type="audio/mpeg"></audio>
+    <audio id="audio" style="width:0px; height:0px;"><source src="{{ asset('multimedia/'.$invitation->invitation_id.'/'.$complement_song) }}" type="audio/mpeg"></audio>
   
     <!-- =======================================================
     * Template Name: eStartup - v4.7.0

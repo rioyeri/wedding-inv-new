@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Complement extends Model
+class ComplementSpecial extends Model
 {
-    protected $table ='complement';
+    protected $table ='complement_specialname';
     protected $fillable = [
-        'invitation_id', 'icon', 'song', 'banner', 'creator', 'song2',
+        'invitation_id','name','creator',
     ];
 
     public function creator_name(){

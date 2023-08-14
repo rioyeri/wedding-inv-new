@@ -6,7 +6,7 @@
 
     <link rel="shortcut icon" href="{{ asset('assets/images/icon.ico') }}">
 
-    <title>nadaSederhana - Wedding Invitation Generator</title>
+    <title>Studio Si Apin - Wedding Invitation Generator</title>
 
     @yield('css')
     <!-- Notification css (Toastr) -->

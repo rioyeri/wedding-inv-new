@@ -7,9 +7,9 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="assets/images/klink.ico">
+        <link rel="shortcut icon" href="{{ asset('onepiece.png') }}">
 
-        <title>Stockist K-link Paskal Hypersquare IDSBG85 - Enterprise Resource Planning</title>
+        <title>Studio Si Apin</title>
 
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="assets/plugins/morris/morris.css">

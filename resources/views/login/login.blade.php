@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>GPT Tulungagung</title>
+        <title>Studio Si Apin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets/images/logo_mempelai.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('onepiece.png') }}">
 
         <!-- App css -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -52,7 +52,7 @@
         <div class="wrapper-page">
             <div class="text-center">
                 <div class="logo">
-                    <h1 class="text-light"><a href="{{ route('getHome') }}"><span>Nada Sederhana</span></a></h1>
+                    <h1 class="text-light"><a href="{{ route('getHome') }}"><span>Studio Si Apin</span></a></h1>
                 </div>
                 {{-- <a href="{{ route('getHome') }}" class="logo"><span><span><br>Gereja Pantekosta Tabernakel<br></span>Tulungagung</span></a> --}}
                 {{-- <h5 class="text-muted mt-0 font-600">Sign In to Editor Page</h5> --}}

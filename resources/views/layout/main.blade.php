@@ -30,7 +30,7 @@
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
-                    2021 GPT Tulungagung
+                    2023 Studio Si Apin
                 </footer>
 
             </div>

@@ -7,9 +7,9 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('onepiece.png') }}">
 
-        <title>Nada Sederhana</title>
+        <title>Studi Si Apin</title>
 
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="{{ asset('assets/plugins/morris/morris.css') }}">
@@ -35,7 +35,7 @@
                     <div class="col-sm-12">
                         <div class="text-center">
                             <h2 class="text-secondary m-t-0 text-uppercase font-600">Segera Hadir</h2>
-                            <h1 class="text-inverse m-t-0 font-600">nadasederhana.com</h1>
+                            <h1 class="text-inverse m-t-0 font-600">studiosiapin.com</h1>
                         </div>
                     </div>
                 </div>
@@ -108,9 +108,9 @@
                 //Set your date
                 $('#count-down').countDown({
                     targetDate: {
-                        'day': 18,
-                        'month': 10,
-                        'year': 2022,
+                        'day': 2,
+                        'month': 1,
+                        'year': 2024,
                         'hour': 0,
                         'min': 0,
                         'sec': 0
